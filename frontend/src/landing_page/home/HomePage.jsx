@@ -1,0 +1,3 @@
+/*
+this component will be the wrapper for the entire home section
+ */
