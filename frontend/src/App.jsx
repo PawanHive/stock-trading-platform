@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 
 import HomePage from "./landing_page/home/HomePage"
 
