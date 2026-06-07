@@ -12,7 +12,7 @@ function AboutPage() {
       <Hero />
       <Team />
     </>
-   );
+  );
 }
 
 export default AboutPage;

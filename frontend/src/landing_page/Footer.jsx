@@ -33,7 +33,7 @@ function Footer() {
                 <img src="media/images/googlePlayBadge.svg" alt="" style={{width: "103%", filter: "invert(1)"}}/>
               </div>
               <div className="col">
-                <img src="media/images/appstoreBadge.svg" alt="" style={{width: "100%", filter: "invert(1)"}} />
+                <img src="media/images/appstoreBadge.svg" alt="" style={{width: "98%", filter: "invert(1)"}} />
               </div>
             </div>
           </div>
