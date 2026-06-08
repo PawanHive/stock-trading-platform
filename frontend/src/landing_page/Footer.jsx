@@ -7,7 +7,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className='border-top' style={{ backgroundColor: "rgb(250, 250, 250" }}>
+    <footer className='border-top mt-5' style={{ backgroundColor: "rgb(250, 250, 250" }}>
 
 
       <div className="container mt-5">
