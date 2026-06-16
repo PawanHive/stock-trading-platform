@@ -17,7 +17,7 @@ function Dashboard() {
 
       <div className='content'>
         <Routes>
-          <Route path='/summary' element={<Summary />} />
+          <Route path='/' element={<Summary />} />
           <Route path='/orders' element={<Orders />} />
           <Route path='/holdings' element={<Holdings />} />
           <Route path='/positions' element={<Positions />} />
