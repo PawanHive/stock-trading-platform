@@ -187,10 +187,6 @@ code {
   border-right: 1px solid #f1f1f1;
 }
 
-.order-table tr td:last-child {
-  font-size: 0.6rem;
-}
-
 .order-table td {
   padding: 10px 10px;
   text-align: right;
@@ -413,10 +409,6 @@ hr {
     width: 50%;
     text-align: center;
     border-radius: 2px;
-}
-
-.order-table tr td:last-child {
-  font-size: 0.6rem;
 }
 
 .order-table td {
