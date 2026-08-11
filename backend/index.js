@@ -1,8 +1,16 @@
+require("dotenv").config();
+
+
 const express = require("express");
+const mongoose = require("mongoose");
+
+const PORT = process.env.PORT || 8080;
+const url = process.env.MONGO_URL;
 const app = express();
 
-let port = 8080;
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    mongoose.connect(url); // connecting this backend server to database (MongoDB Altas cloud database)
+    console.log("DB Connected!")
 });

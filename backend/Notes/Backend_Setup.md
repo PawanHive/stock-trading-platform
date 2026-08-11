@@ -25,3 +25,5 @@ app.listen(port, () => {
 });
 
 ```
+## Step 6: start server 
+- `npm start`
