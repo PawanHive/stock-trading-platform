@@ -10,7 +10,7 @@ const app = express();
 
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}!`);
     mongoose.connect(url); // connecting this backend server to database (MongoDB Altas cloud database)
     console.log("DB Connected!")
 });
