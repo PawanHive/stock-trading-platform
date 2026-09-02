@@ -3,7 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 
-const { HoldingsModel } = require('./model/HoldingsModel')
+const { HoldingsModel } = require("./model/HoldingsModel");
+const { PositionsModel } = require("./model/PositionsModel");
 
 const PORT = process.env.PORT || 8080;
 const url = process.env.MONGO_URL;
@@ -142,17 +143,54 @@ app.get("/addHoldings", async (req, res) => {
 });
 */
 
+// insert Positions data to DB
+/*
+app.get("/addPositions", async (req, res) => {
+    const tempPositions = [
+        {
+            product: "CNC",
+            name: "EVEREADY",
+            qty: 2,
+            avg: 316.27,
+            price: 312.35,
+            net: "+0.58%",
+            day: "-1.24%",
+            isLoss: true,
+        },
+        {
+            product: "CNC",
+            name: "JUBLFOOD",
+            qty: 1,
+            avg: 3124.75,
+            price: 3082.65,
+            net: "+10.04%",
+            day: "-1.35%",
+            isLoss: true,
+        },
+    ];
+
+    try {
+        await PositionsModel.deleteMany({}); // it will not let the data duplicate.. first clear existing one
+        await PositionsModel.insertMany(tempPositions);
+
+        res.status(201).send("Positions added successfully!");
+    } catch (err) {
+        console.error("Error adding holdings: ", err);
+        res.status(500).send("failed to add holdings")
+    }
+});
+*/
 
 // Pehle DB connect karo, phir server start karo
-mongoose.connect(url)
-.then(() => {
-    console.log("DB Connected!");
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}!`);
+mongoose
+    .connect(url)
+    .then(() => {
+        console.log("DB Connected!");
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}!`);
+        });
+    })
+    .catch((err) => {
+        console.error("DB connection failed: ", err);
+        process.exit(1);
     });
-})
-.catch((err) => {
-    console.error("DB connection failed: ", err);
-    process.exit(1);
-})
-
