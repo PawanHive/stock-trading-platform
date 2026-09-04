@@ -2,9 +2,12 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
+const cors = require("cors");
 
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModel");
+
 
 const PORT = process.env.PORT || 8080;
 const url = process.env.MONGO_URL;
@@ -15,6 +18,9 @@ if (!url) {
 }
 
 const app = express();
+
+app.use(cors());
+app.use(bodyParser.json())
 
 // insert Holdings Data to DB
 /*
@@ -181,6 +187,17 @@ app.get("/addPositions", async (req, res) => {
 });
 */
 
+// get all holdings data from server:
+app.get("/allHoldings", async (req, res) => {
+    let allHoldings = await HoldingsModel.find({});
+    res.json(allHoldings)
+})
+
+// get all positins data from server: 
+app.get("/allPositions", async (req, res) => {
+    let allPositions = await PositionsModel.find({});
+    res.json(allPositions)
+})
 // Pehle DB connect karo, phir server start karo
 mongoose
     .connect(url)
